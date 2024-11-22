@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #08007c;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin: 20px auto;
+            width: 50%;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #000000;
+            color: white;
+        }
+        tr:hover {
+            background-color: #9e9e9e;
+            transition: background-color 0.3s;
+        }
+        footer {
+            background-color: #020079;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Alumni FKOM</h1>
+    </header>
+    <main>
+        <input type="text" id="searchInput" placeholder="Cari berdasarkan nama atau jurusan..." onkeyup="filterTable()">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Jurusan</th>
+                    <th>Tahun Lulus</th>
+                </tr>
+            </thead>
+            <tbody id="alumniTable">
+                <tr>
+                    <td>Febri Putra</td>
+                    <td>Sistem Informasi</td>
+                    <td>2023</td>
+                </tr>
+                <tr>
+                    <td>Feby Putri</td>
+                    <td>Teknik Informatika</td>
+                    <td>2022</td>
+                </tr>
+                <tr>
+                    <td>Abimanyu Pratama</td>
+                    <td>Manajemen Informatika</td>
+                    <td>2021</td>
+                </tr>
+                <tr>
+                    <td>Syakhira Muthyara</td>
+                    <td>Desain Komunikasi Visual</td>
+                    <td>2023</td>
+                </tr>
+                <tr>
+                    <td>Nuryani</td>
+                    <td>Sistem Informasi</td>
+                    <td>2023</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>© 2024 Alumni Terkini</p>
+    </footer>
+    <script>
+        function filterTable() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const rows = document.querySelectorAll("#alumniTable tr");
+            rows.forEach(row => {
+                const name = row.cells[0].textContent.toLowerCase();
+                const major = row.cells[1].textContent.toLowerCase();
+                if (name.includes(input) || major.includes(input)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
